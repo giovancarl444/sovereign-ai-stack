@@ -1,0 +1,11 @@
+# never commit secrets or local state
+.env
+*.tfstate
+*.tfstate.backup
+terraform.tfvars
+*.pem
+*.key
+/tmp/
+__pycache__/
+*.pyc
+.DS_Store

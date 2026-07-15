@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Sovereign AI Stack — free Oracle ARM, actually launches</title>
+<style>
+  :root { --bg:#0b0e14; --fg:#e6e6e6; --acc:#4ea1ff; --mut:#8b94a7; --card:#141a24; }
+  * { box-sizing:border-box; }
+  body { margin:0; background:var(--bg); color:var(--fg);
+         font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Roboto,Helvetica,Arial,sans-serif;
+         line-height:1.6; }
+  .wrap { max-width:760px; margin:0 auto; padding:48px 24px 80px; }
+  h1 { font-size:2.1rem; line-height:1.2; margin:0 0 8px; }
+  h1 .acc { color:var(--acc); }
+  .tag { color:var(--mut); font-size:.95rem; margin-bottom:28px; }
+  .card { background:var(--card); border:1px solid #20283a; border-radius:12px;
+          padding:22px 22px; margin:18px 0; }
+  .card h3 { margin:0 0 10px; color:var(--acc); font-size:1.1rem; }
+  code { background:#0d1320; padding:2px 6px; border-radius:5px; font-size:.9em; color:#9fd0ff; }
+  pre { background:#0d1320; padding:14px; border-radius:8px; overflow:auto; font-size:.85rem; }
+  .cta { display:block; text-align:center; background:var(--acc); color:#06121f;
+         font-weight:700; text-decoration:none; padding:14px 20px; border-radius:10px;
+         margin:26px 0 10px; font-size:1.05rem; }
+  .cta:hover { filter:brightness(1.08); }
+  .aff { display:block; text-align:center; border:1px solid var(--acc); color:var(--acc);
+         text-decoration:none; padding:12px; border-radius:10px; margin:12px 0; }
+  .foot { color:var(--mut); font-size:.82rem; margin-top:36px; text-align:center; }
+  ul { margin:8px 0; padding-left:20px; } li { margin:4px 0; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h1>Run a <span class="acc">sovereign AI agent stack</span><br/>on free Oracle ARM</h1>
+  <p class="tag">And actually get the instance to launch. No retry-storm. No ghost availability domains.</p>
+
+  <div class="card">
+    <h3>The two walls everyone hits on OCI</h3>
+    <ul>
+      <li><b>“Out of host capacity”</b> on every A1.Flex launch — the cheap ARM shape is massively over-subscribed.</li>
+      <li><b>429 Too Many Requests</b> — because the OCI CLI binary storm-retries internally and burns your rate limit before you get a real answer.</li>
+    </ul>
+    <p>This repo is the working fix. It calls the OCI <b>SDK</b> directly (instant, no storm), discovers the ADs that <b>actually belong to your tenancy</b>, and tells you whether to <i>wait</i> (capacity) or <i>fix</i> (format bug).</p>
+  </div>
+
+  <div class="card">
+    <h3>Free — get a node online</h3>
+    <pre>pip install oci
+export OCI_RETRY_STRATEGY=none
+python3 launch.py \
+  --compartment ocid1.tenancy.oc1..xxxx \
+  --image      ocid1.image.oc1... \
+  --subnet     ocid1.subnet.oc1... \
+  --ssh-key    ~/.ssh/id_ed25519.pub \
+  --ocpus 8 --memory 64</pre>
+    <p style="margin:10px 0 0;color:var(--mut);font-size:.9rem">
+      Full source + docs:
+      <a href="https://github.com/giovancarl444/sovereign-ai-stack" style="color:var(--acc)">github.com/giovancarl444/sovereign-ai-stack</a>
+    </p>
+  </div>
+
+  <!-- OWNER: replace with your real Gumroad product URL -->
+  <a class="cta" href="https://yourname.gumroad.com/l/sovereign-ai">🚀 Get the full Sovereign AI Stack kit →</a>
+  <p style="color:var(--mut);font-size:.85rem;text-align:center;margin:0 0 18px">
+    Patient launch watcher · multi-region fallback · holographic memory · godmode squad · troubleshooting bible
+  </p>
+
+  <!-- OWNER: replace with your real affiliate referral link -->
+  <a class="aff" href="https://example.com/affiliate">🔧 Recommended tools for running AI agents (owner referral)</a>
+
+  <p class="foot">
+    Zero capital. Sovereign. Yours.<br/>
+    Oracle Always Free ARM · the constraint is capacity, not cost.
+  </p>
+</div>
+</body>
+</html>
